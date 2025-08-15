@@ -13,6 +13,11 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import streamlit as st
 
+from google.cloud import secretmanager
+client = secretmanager.SecretManagerServiceClient()
+name = f"projects/refreshing-cat-447519-s2/secrets/nvd-api-key/versions/latest"
+api_key = client.access_secret_version(request={"name": name}).payload.data.decode("UTF-8")
+
 NVD_API_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 DEFAULT_PAGE_SIZE = 20
 MAX_PAGE_SIZE = 2000
