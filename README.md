@@ -9,7 +9,7 @@ This can be run locally.  The requirements include:
 <ul>
 <li>An API key that can be generated from https://nvd.nist.gov/developers/request-an-api-key</li>
 <li>Python v.3.12 or greater</li>
-<li>Run if needed: <code>pip install streamlit requests pandas python-dateutil</code></li>
+<li>Install any modules needed as described in 'requirements.txt'</li>
 <li>Outbound connectivity to https://services.nvd.nist.gov/rest/json/cves/2.0</li>
 </ul>
 
