@@ -138,6 +138,10 @@ def fetch_cves(
         # params["cvssV3Severity"] = ",".join(sorted(set(severities)))
 
     headers = {"User-Agent": "NVD-CVE-Browser/1.0"}
+    api_key = os.environ.get("NVD_API_KEY")
+    if not api_key:
+        st.error("NVD API key not set. Please configure it in App Engine's env_variables.")
+        st.stop()
     if api_key:
         headers["apiKey"] = api_key
 
