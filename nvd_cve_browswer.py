@@ -13,10 +13,10 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import streamlit as st
 
-from google.cloud import secretmanager
-client = secretmanager.SecretManagerServiceClient()
-name = f"projects/refreshing-cat-447519-s2/secrets/nvd-api-key/versions/latest"
-api_key = client.access_secret_version(request={"name": name}).payload.data.decode("UTF-8")
+# from google.cloud import secretmanager
+# client = secretmanager.SecretManagerServiceClient()
+# name = f"projects/refreshing-cat-447519-s2/secrets/nvd-api-key/versions/latest"
+# api_key = client.access_secret_version(request={"name": name}).payload.data.decode("UTF-8")
 
 NVD_API_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 DEFAULT_PAGE_SIZE = 20
@@ -143,12 +143,14 @@ def fetch_cves(
         # params["cvssV3Severity"] = ",".join(sorted(set(severities)))
 
     headers = {"User-Agent": "NVD-CVE-Browser/1.0"}
-    api_key = os.environ.get("NVD_API_KEY")
+    if api_key:
+        headers["apiKey"] = api_key
+    else:
+        api_key = os.environ.get("NVD_API_KEY")
     if not api_key:
         st.error("NVD API key not set. Please configure it in App Engine's env_variables.")
         st.stop()
-    if api_key:
-        headers["apiKey"] = api_key
+
 
     # Comply with NVD's 6-second delay guideline
     st.info("Sleeping 6 seconds before making the NVD API request (per API guidelines)...")
