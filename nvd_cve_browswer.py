@@ -176,9 +176,9 @@ def fetch_cves(
         raise RuntimeError(f"NVD API error {resp.status_code}: {err}")
 
 # Streamlit UI - G's 3rd attempt
-st.set_page_config(page_title="GPG's NVD CVE Browser", page_icon="🛡️", layout="wide")
+st.set_page_config(page_title="NVD CVE Browser", page_icon="🛡️", layout="wide")
 
-st.title("🛡️ Geordie Grindle's 3rd NVD CVE Browser")
+st.title("🛡️ Geordie Grindle's NVD CVE Browser")
 st.caption("Search, filter, and export CVE data from the National Vulnerability Database (API v2).")
 
 with st.sidebar:
@@ -193,7 +193,7 @@ with st.sidebar:
         start_date = st.date_input("Published from", value=last_30)
     with col_b:
         end_date = st.date_input("Published to", value=today)
-    severities = st.multiselect("Severity (CVSS v3)", options=["CRITICAL", "HIGH", "MEDIUM", "LOW"], default=["CRITICAL", "HIGH"])
+    severities = st.multiselect("Severity (CVSS v3) - select one", options=["CRITICAL", "HIGH", "MEDIUM", "LOW"], default=["CRITICAL"])
     st.subheader("Pagination")
     page_size = st.number_input("Results per page", min_value=1, max_value=MAX_PAGE_SIZE, value=DEFAULT_PAGE_SIZE, step=1)
     if "start_index" not in st.session_state:

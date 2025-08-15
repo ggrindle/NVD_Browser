@@ -7,5 +7,12 @@ Requirements include:
 <ul>
 <li>An API key that can be generated from https://nvd.nist.gov/developers/request-an-api-key</li>
 <li>Python v.3.12 or greater</li>
+<li>Run if needed: <code>pip install streamlit requests pandas python-dateutil</code></li>
 <li>Outbound connectivity to https://services.nvd.nist.gov/rest/json/cves/2.0</li>
 </ul>
+
+To run this code, clone this repository to a local directory and change to that directory.
+Then run <code>streamlit run nvd_cve_browser.py</code> in the terminal.
+
+The service will open your default browswer to a localhost url similar to “http://localhost:8501/“ .  
+
