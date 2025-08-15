@@ -134,8 +134,8 @@ def fetch_cves(
     if severities:
         # Join multiple severities into a comma-separated list, per NVD API spec
         params["cvssV3Severity"] = ",".join(sorted(set(severities)))
-        print("Using severities:", params["cvssV3Severity"])  # Debug check
-    #     # params["cvssV3Severity"] = ",".join(sorted(set(severities)))
+        # print("Using severities:", params["cvssV3Severity"])  # Debug check
+        # params["cvssV3Severity"] = ",".join(sorted(set(severities)))
 
     headers = {"User-Agent": "NVD-CVE-Browser/1.0"}
     if api_key:
