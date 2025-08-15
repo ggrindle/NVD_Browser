@@ -3,7 +3,9 @@ The challenge is to create a Python3 based application that interacts with the N
 
 Details about this API can be found here: https://nvd.nist.gov/developers/start-here.
 
-Requirements include:
+The GCP App engine config is included, if you want to run this on GCP.
+
+This can be run locally.  The requirements include:
 <ul>
 <li>An API key that can be generated from https://nvd.nist.gov/developers/request-an-api-key</li>
 <li>Python v.3.12 or greater</li>
