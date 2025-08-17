@@ -1,6 +1,6 @@
   runtime: python
   env: flex
-  entrypoint: streamlit run nvd_cve_browswer.py --server.port $PORT --server.address 0.0.0.0
+  entrypoint: streamlit run nvd_cve_browser.py --server.port $PORT --server.address 0.0.0.0
   env_variables:
       NVD_API_KEY: "your_api_key_here"
 
