@@ -189,7 +189,7 @@ def fetch_cves(
 # Streamlit UI - G's 3rd attempt
 st.set_page_config(page_title="NVD CVE Browser", page_icon="🛡️", layout="wide")
 
-st.title("🛡️ Geordie Grindle's NVD CVE Browser - caution: unencrypted communication - use at your own risk.")
+st.title("🛡️ Example NVD CVE Browser - caution: unencrypted communication - use at your own risk.")
 st.caption("Search, filter, and export CVE data from the National Vulnerability Database (API v2).")
 
 with st.sidebar:
