@@ -195,7 +195,9 @@ st.caption("Search, filter, and export CVE data from the National Vulnerability 
 with st.sidebar:
     st.header("Search & Filters")
     default_api_key = os.getenv("NVD_API_KEY")
-    api_key = st.text_input("NVD API Key", value=default_api_key if default_api_key else "", type="password")
+    # Disable API key input and potential reveal of value stored in secret keystore
+    # api_key = st.text_input("NVD API Key", value=default_api_key if default_api_key else "", type="password")
+    api_key = value=default_api_key
     keyword = st.text_input("Keyword", value="", placeholder="e.g., openssl, cisco asa")
     today = date.today()
     last_30 = today - timedelta(days=30)
